@@ -1,0 +1,20 @@
+<html>
+    <head></head>
+    <script>
+        async function displaySum() {
+            let num1 = parseFloat(document.getElementById("num1").value)
+            let num2 = parseFloat(document.getElementById("num2").value)
+            let response = await fetch(`http://localhost:3000?a=${num1}&b=${num2}`)
+            let sum = await response.text()
+            let element = document.getElementById("divID")
+            element.innerHTML = "Sum is " + sum
+        }
+    </script>
+    <body>
+        <input id="num1" type="text" placeholder="num 1"><br><br>
+        <input id="num2" type="text" placeholder="num 2"><br><br>
+        <button onclick="displaySum()" style="cursor: pointer">Calculate Sum</button><br><br>
+        <div id="divID"></div>
+        
+    </body>
+</html>
